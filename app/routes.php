@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', 'IndexController@getIndex');
 
+Route::controller('search', 'SearchController');
+Route::controller('/', 'IndexController');
 

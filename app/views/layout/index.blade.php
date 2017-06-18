@@ -109,7 +109,7 @@
 </a>
 </li>
 <?php
-echo $categoris_html;
+echo $categories_html;
 ?>
 </ul>
 </div>
@@ -151,17 +151,17 @@ echo $categoris_html;
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="images/preview/gintama.png" class="carousel-inner img-responsive img-rounded">
+                    <img src="assets/images/preview/gintama.png" class="carousel-inner img-responsive img-rounded">
 
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="item">
-                    <img src="images/preview/naruto.png" class="carousel-inner img-responsive img-rounded">
+                    <img src="assets/images/preview/naruto.png" class="carousel-inner img-responsive img-rounded">
 
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="item">
-                    <img src="images/preview/Yu-Gi-Oh!.png" class="carousel-inner img-responsive img-rounded">
+                    <img src="assets/images/preview/Yu-Gi-Oh!.png" class="carousel-inner img-responsive img-rounded">
 
                     <div class="carousel-caption"></div>
                 </div>
@@ -237,15 +237,15 @@ echo $bili_video_ranking_html;
             </div>
             <div class="col-md-4">
                 <div class="col-md-4">
-                    <img src="images/icons/download.png">
+                    <img src="assets/images/icons/download.png">
                     <a href="#"><p>手机端下载</p></a>
                 </div>
                 <div class="col-md-4">
-                    <img src="images/icons/weibo.png">
+                    <img src="assets/images/icons/weibo.png">
                     <a href="#"><p>新浪微博</p></a>
                 </div>
                 <div class="col-md-4">
-                    <img src="images/icons/wechat.png">
+                    <img src="assets/images/icons/wechat.png">
                     <a href="#"><p>官方微信</p></a>
                 </div>
             </div>
@@ -284,7 +284,7 @@ echo $bili_video_ranking_html;
         var video_id = $(this).parents().data("video-id");
 //        alert(video_id);
         $(this).find(".progress-bar").width(ratio + "%");
-        $(this).siblings(".bili-video-background").find("img").prop("src", "images/videoshot/" + video_id + "/" + background_index + ".png");
+        $(this).siblings(".bili-video-background").find("img").prop("src", "assets/images/videoshot/" + video_id + "/" + background_index + ".png");
 
 //        alert(background_index);
     });
@@ -320,14 +320,14 @@ echo $bili_video_ranking_html;
     });
 
 
-    $.post("video.php", function (data) {
+    $.post("bili-video", function (data) {
         video_list = $.parseJSON(data);
     });
 
 
     function bili_ranking_panel(video_id) {
         $(".bili-ranking-panel-name").text(video_list[video_id]['name']);
-        $(".bili-ranking-panel-img").prop("src", "images/cover/" + video_list[video_id]['image_name'] + ".png");
+        $(".bili-ranking-panel-img").prop("src", "assets/images/cover/" + video_list[video_id]['image_name'] + ".png");
         $(".bili-ranking-panel-detail").text(video_list[video_id]['detail']);
         $(".bili-ranking-panel-click-count").text(video_list[video_id]['click_count']);
         $(".bili-ranking-panel-comment-count").text(video_list[video_id]['comment_count']);

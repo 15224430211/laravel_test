@@ -60,7 +60,7 @@ LIMIT 6";
             $title_html .= '<div class="col-md-4">
                       <div class="bili-item">
                         <a href="#">
-                            <img class="bili-item-img img-responsive img-rounded" src="images/cover/' . $value['image_name'] . '.png">
+                            <img class="bili-item-img img-responsive img-rounded" src="assets/images/cover/' . $value['image_name'] . '.png">
                             <div class="bili-item-mask">
                                 <p>' . $value['name'] . '</p>
                                 <p>up主:坂田银时</p>
@@ -84,7 +84,8 @@ categories.visit_count,
 categories.daily_count
 FROM
 categories";
-        $result_categories = mysqli_fetch_all(mysqli_query($a, $sql), MYSQLI_ASSOC);
+        $result_categories = DB::select($sql);
+        $result_categories = json_decode(json_encode($result_categories), 1);
         $bili_video_ranking_html = "";
         foreach ($result_categories as $categories_key => $categories_value) {
             $bili_video_html = "";
@@ -102,11 +103,11 @@ animation_detail.categories_id =" . $categories_value['id'] . "
 LIMIT 8";
 
             $result = DB::select($sql);
-            $result = json_decode(json_encode($result_categories), 1);
+            $result = json_decode(json_encode($result), 1);
             foreach ($result as $value) {
                 $bili_video_html .=
                     "<div class='col-md-3' data-video-id='{$value['id']}'>
-                    <img class='bili-video-img' src='images/cover/" . $value['image_name'] . ".png'>
+                    <img class='bili-video-img' src='assets/images/cover/" . $value['image_name'] . ".png'>
                     <div class='bili-video-background'>
                         <img src='#'>
                     </div>
@@ -138,7 +139,7 @@ LIMIT 8";
             }
             $bili_video_html = "<div class='col-md-8'>
             <div class='row'>
-                <div class='col-md-1'><img src='images/icons/" . $categories_value['id'] . ".png'/></div>
+                <div class='col-md-1'><img src='assets/images/icons/" . $categories_value['id'] . ".png'/></div>
                 <div class='col-md-1' style='padding: 0px'><a href='#'><h4>" . $categories_value['name'] . "</h4></a>
                 </div>
                 <div class='col-md-4'>
@@ -174,7 +175,7 @@ WHERE
 animation_detail.categories_id =" . $categories_value['id'] . "
 LIMIT 7";
             $result = DB::select($sql);
-            $result = json_decode(json_encode($result_categories), 1);
+            $result = json_decode(json_encode($result), 1);
             foreach ($result as $key => $value) {
                 if ($key == 0) {
                     $bili_ranking_html .= "
@@ -184,7 +185,7 @@ LIMIT 7";
                         </div>
                         <div class='media-left'>
                             <a href='#'>
-                                <img class='media-object' src='images/cover/" . $value['image_name'] . ".png'>
+                                <img class='media-object' src='assets/images/cover/" . $value['image_name'] . ".png'>
                             </a>
                         </div>
                         <div class='media-body media-heading'>
@@ -235,6 +236,38 @@ LIMIT 7";
         }
 
         return $bili_video_ranking_html;
+    }
+
+    public function postBiliVideo()
+    {
+        $a = mysqli_connect("127.0.0.1", "root", "", "bilibili");
+        $sql = '
+SELECT
+animation_detail.id,
+animation_detail.`name`,
+animation_detail.update_time,
+animation_detail.click_count,
+animation_detail.comment_count,
+animation_detail.fav_count,
+animation_detail.coin_count,
+animation_detail.image_name,
+animation_detail.length,
+animation_detail.detail
+FROM
+animation_detail';
+        $result = DB::select($sql);
+        $result = json_decode(json_encode($result), 1);
+        echo json_encode(($result), JSON_UNESCAPED_UNICODE);
+
+    }
+
+    function myfunction($result)
+    {
+        $fuck = array();
+        foreach ($result as $key => $value) {
+            $fuck[$value['id']] = $value;
+        }
+        return $fuck;
     }
 
 }
