@@ -113,25 +113,14 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <ul class="nav nav-pills">
-                            <li role="presentation" class="active"><a href="#">
-                                    <small>全部分区</small>
-                                </a></li>
-                            <li role="presentation"><a href="#">
-                                    <small>游戏</small>
-                                </a></li>
-                            <li role="presentation"><a href="#">
-                                    <small>音乐</small>
-                                </a></li>
-                            <li role="presentation"><a href="#">
-                                    <small>影视</small>
-                                </a></li>
-                            <li role="presentation"><a href="#">
-                                    <small>动画</small>
-                                </a></li>
+                        <ul class="nav nav-pills bili-search-filter-categories">
+                            <?php
+                            echo $categories_html;
+                            ?>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -251,6 +240,15 @@
     });
 
 
+    $(".bili-search-filter-categories > li > a").click(function () {
+        event.preventDefault();
+        var param = GetRequest();
+        param.categories = $(this).data('filter');
+        var str = jQuery.param(param);
+        window.location.href = location.pathname + '?' + str;
+    });
+
+
     $(document).ready(function () {
         var param = GetRequest();
         if (typeof (param.order) != "undefined") {
@@ -269,6 +267,17 @@
             $(".bili-search-filter-duration > li > a[data-filter='" + param.duration + "']").parents().addClass("active");
         } else {
             $(".bili-search-filter-duration > li:first").addClass("active");
+        }
+    });
+
+
+    $(document).ready(function () {
+        var param = GetRequest();
+        if (typeof (param.categories) != "undefined") {
+            $(".bili-search-filter-categories > li ").removeClass("active");
+            $(".bili-search-filter-categories > li > a[data-filter='" + param.categories + "']").parents().addClass("active");
+        } else {
+            $(".bili-search-filter-categories> li:first").addClass("active");
         }
     });
 

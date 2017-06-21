@@ -5,8 +5,10 @@ class SearchController extends BaseController
     public function getIndex()
     {
         $search_html = $this->Bili_Search();
+        $categories_html = $this->Bili_categories();
         return View::make('layout.SearchIndex')
-            ->with('search_html', $search_html);
+            ->with('search_html', $search_html)
+            ->with('categories_html', $categories_html);
     }
 
     public function Bili_Search()
@@ -16,6 +18,7 @@ class SearchController extends BaseController
         }
         if (isset($_GET['order']) && $_GET['order'] == "click_count") {
             $_GET['order'] = "animation_detail." . $_GET['order'];
+//            echo $_GET['order'];
         } elseif (isset($_GET['order']) && $_GET['order'] == "fav_count") {
             $_GET['order'] = "animation_detail." . $_GET['order'];
         } elseif (isset($_GET['order']) && $_GET['order'] == "update_time") {
@@ -23,9 +26,9 @@ class SearchController extends BaseController
         } elseif (isset($_GET['order']) && $_GET['order'] == "comment_count") {
             $_GET['order'] = "animation_detail." . $_GET['order'];
         } else {
-            $_GET['order'] = " (animation_detail.click_count*0.01 +
+            $_GET['order'] = " (1/(animation_detail.click_count*0.01 +
     animation_detail.comment_count*0.099 + animation_detail.fav_count*0.6 +
-    animation_detail.coin_count*0.099) ";
+    animation_detail.coin_count*0.099)) ";
         }
 
 
@@ -38,7 +41,14 @@ class SearchController extends BaseController
         } elseif (isset($_GET['duration']) && $_GET['duration'] == "4") {
             $duration = 'animation_detail.length > "60:00"';
         } else {
-            $duration ='1=1';
+            $duration = '1=1';
+        }
+
+
+        if (isset($_GET['categories']) && $_GET['categories'] != "0") {
+            $categories = 'animation_detail.categories_id =' . $_GET['categories'];
+        } else {
+            $categories = '1=1';
         }
 
 
@@ -48,7 +58,8 @@ class SearchController extends BaseController
             ->leftJoin('categories', 'categories.id', '=', 'animation_detail.categories_id')
             ->where('animation_detail.name', 'LIKE', "%" . $_GET['keyword'] . "%")
             ->whereRaw($duration)
-            ->take(7)->orderBy(DB::raw($_GET['order']))->get();
+            ->whereRaw($categories)
+            ->take(7)->orderBy(DB::raw($_GET['order']),"DESC")->get();
         foreach ($result as $key => $value) {
             $search_html .= '
 <div class="col-md-12">
@@ -89,4 +100,24 @@ class SearchController extends BaseController
         }
         return $search_html;
     }
+
+
+    public function Bili_Categories()
+    {
+        $categories_html = '<li role="presentation"><a data-filter="0" href="javascript:;">
+            <small>全部分类</small>
+            </a>
+            </li> ';
+
+        $result_categories = DB::table('categories')->get();
+
+        foreach ($result_categories as $key => $value) {
+            $categories_html .= '<li role="presentation"><a data-filter="' . $value->id . '" href="javascript:;">
+            <small>' . $value->name . '</small>
+            </a>
+            </li> ';
+        }
+        return $categories_html;
+    }
+
 }
