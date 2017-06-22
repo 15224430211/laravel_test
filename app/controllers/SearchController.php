@@ -55,10 +55,10 @@ class SearchController extends BaseController
         }
 
 
-        if (isset($_GET['page']) && $_GET['page'] != "0") {
-            $page = 'animation_detail.categories_id =' . $_GET['page'];
+        if (isset($_GET['page']) && is_numeric($_GET['page'])) {
+            $page = $_GET['page'];
         } else {
-            $page = "1=1";
+            $page = 1;
         }
 
 
@@ -69,7 +69,8 @@ class SearchController extends BaseController
             ->where('animation_detail.name', 'LIKE', "%" . $_GET['keyword'] . "%")
             ->whereRaw($duration)
             ->whereRaw($categories)
-            ->take(7)->orderBy(DB::raw($_GET['order']), "DESC")->get();
+            ->skip(($page - 1) * 10)
+            ->take(10)->orderBy(DB::raw($_GET['order']), "DESC")->get();
 
         foreach ($result as $key => $value) {
             $search_html .= '
@@ -117,7 +118,7 @@ class SearchController extends BaseController
             ->whereRaw($categories)
             ->count();
 //        页数获取
-        echo $this->page_num = ceil($count / 10);
+         $this->page_num = ceil($count / 10);
 
         return $search_html;
     }
@@ -146,7 +147,7 @@ class SearchController extends BaseController
     {
         $page_html = "";
         for ($i = 0; $i < $page_num; $i++) {
-            $page_html .= '<li><a href="#">' . ($i + 1) . '</a></li>';
+            $page_html .= '<li><a data-filter="' . ($i+1) . '" href="javascript:;">' . ($i + 1) . '</a></li>';
         }
 
         return $page_html;

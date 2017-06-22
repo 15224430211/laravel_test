@@ -134,7 +134,7 @@
 
     <div class="col-md-4">
         <nav aria-label="Page navigation">
-            <ul class="pagination">
+            <ul class="pagination bili-search-page">
                 <li>
                     <a href="#" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
@@ -248,6 +248,16 @@
         event.preventDefault();
         var param = GetRequest();
         param.order = $(this).data('filter');
+        param.page = 1;
+        var str = jQuery.param(param);
+        window.location.href = location.pathname + '?' + str;
+    });
+
+
+    $(".bili-search-page > li > a").click(function () {
+        event.preventDefault();
+        var param = GetRequest();
+        param.page = $(this).data('filter');
         var str = jQuery.param(param);
         window.location.href = location.pathname + '?' + str;
     });
@@ -257,6 +267,7 @@
         event.preventDefault();
         var param = GetRequest();
         param.duration = $(this).data('filter');
+        param.page = 1;
         var str = jQuery.param(param);
         window.location.href = location.pathname + '?' + str;
     });
@@ -266,6 +277,7 @@
         event.preventDefault();
         var param = GetRequest();
         param.categories = $(this).data('filter');
+        param.page = 1;
         var str = jQuery.param(param);
         window.location.href = location.pathname + '?' + str;
     });
@@ -300,6 +312,17 @@
             $(".bili-search-filter-categories > li > a[data-filter='" + param.categories + "']").parents().addClass("active");
         } else {
             $(".bili-search-filter-categories> li:first").addClass("active");
+        }
+    });
+
+
+    $(document).ready(function () {
+        var param = GetRequest();
+        if (typeof (param.page) != "undefined") {
+            $(".bili-search-page > li ").removeClass("active");
+            $(".bili-search-page > li > a[data-filter='" + param.page + "']").parents().addClass("active");
+        } else {
+            $(".bili-search-page> li:first").addClass("active");
         }
     });
 
