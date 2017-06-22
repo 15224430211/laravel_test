@@ -51,16 +51,16 @@
         </div>
     </div>
     <hr>
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="nav nav-tabs nav-justified bili-search-search-bar">
-                <li role="presentation"><a href="#">游戏</a></li>
-                <li role="presentation"><a href="#">音乐</a></li>
-                <li role="presentation"><a href="#">影视</a></li>
-                <li role="presentation"><a href="#">动画</a></li>
-            </ul>
-        </div>
-    </div>
+    {{--<div class="row">--}}
+    {{--<div class="col-md-12">--}}
+    {{--<ul class="nav nav-tabs nav-justified bili-search-search-bar">--}}
+    {{--<li role="presentation"><a href="#">游戏</a></li>--}}
+    {{--<li role="presentation"><a href="#">音乐</a></li>--}}
+    {{--<li role="presentation"><a href="#">影视</a></li>--}}
+    {{--<li role="presentation"><a href="#">动画</a></li>--}}
+    {{--</ul>--}}
+    {{--</div>--}}
+    {{--</div>--}}
     <div class="row">
         <div class="col-md-12">
             <div class="bili-search-filter">
@@ -130,7 +130,28 @@
         ?>
     </div>
     <hr>
+
+
+    <div class="col-md-4">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <?php
+                echo $page_html;
+                ?>
+                <li><a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
+
 <div class="bili-footer" style="background-color: #CCCCFF;">
     <div class="container">
         <hr>
@@ -194,6 +215,7 @@
         </div>
     </div>
 </div>
+
 
 <script src="assets/jquery.min.js"></script>
 <script src="assets/bootstrap.min.js"></script>

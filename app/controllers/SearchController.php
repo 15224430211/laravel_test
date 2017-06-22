@@ -2,13 +2,17 @@
 
 class SearchController extends BaseController
 {
+    private $page_num;
+
     public function getIndex()
     {
         $search_html = $this->Bili_Search();
         $categories_html = $this->Bili_categories();
+        $page_html = $this->Bili_Page($this->page_num);
         return View::make('layout.SearchIndex')
             ->with('search_html', $search_html)
-            ->with('categories_html', $categories_html);
+            ->with('categories_html', $categories_html)
+            ->with('page_html', $page_html);
     }
 
     public function Bili_Search()
@@ -18,7 +22,6 @@ class SearchController extends BaseController
         }
         if (isset($_GET['order']) && $_GET['order'] == "click_count") {
             $_GET['order'] = "animation_detail." . $_GET['order'];
-//            echo $_GET['order'];
         } elseif (isset($_GET['order']) && $_GET['order'] == "fav_count") {
             $_GET['order'] = "animation_detail." . $_GET['order'];
         } elseif (isset($_GET['order']) && $_GET['order'] == "update_time") {
@@ -52,6 +55,13 @@ class SearchController extends BaseController
         }
 
 
+        if (isset($_GET['page']) && $_GET['page'] != "0") {
+            $page = 'animation_detail.categories_id =' . $_GET['page'];
+        } else {
+            $page = "1=1";
+        }
+
+
         $search_html = "";
         $result = DB::table('animation_detail')
             ->select(DB::raw('animation_detail.*,categories.id,categories.`name` AS fuck'))
@@ -59,7 +69,8 @@ class SearchController extends BaseController
             ->where('animation_detail.name', 'LIKE', "%" . $_GET['keyword'] . "%")
             ->whereRaw($duration)
             ->whereRaw($categories)
-            ->take(7)->orderBy(DB::raw($_GET['order']),"DESC")->get();
+            ->take(7)->orderBy(DB::raw($_GET['order']), "DESC")->get();
+
         foreach ($result as $key => $value) {
             $search_html .= '
 <div class="col-md-12">
@@ -98,6 +109,16 @@ class SearchController extends BaseController
             </div>
         </div>';
         }
+
+
+        $count = DB::table('animation_detail')
+            ->where('animation_detail.name', 'LIKE', "%" . $_GET['keyword'] . "%")
+            ->whereRaw($duration)
+            ->whereRaw($categories)
+            ->count();
+//        页数获取
+        echo $this->page_num = ceil($count / 10);
+
         return $search_html;
     }
 
@@ -118,6 +139,17 @@ class SearchController extends BaseController
             </li> ';
         }
         return $categories_html;
+
+    }
+
+    public function Bili_Page($page_num)
+    {
+        $page_html = "";
+        for ($i = 0; $i < $page_num; $i++) {
+            $page_html .= '<li><a href="#">' . ($i + 1) . '</a></li>';
+        }
+
+        return $page_html;
     }
 
 }
