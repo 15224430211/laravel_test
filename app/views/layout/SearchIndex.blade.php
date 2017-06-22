@@ -132,7 +132,7 @@
     <hr>
 
 
-    <div class="col-md-4">
+    <div class="col-md-12 text-center">
         <nav aria-label="Page navigation">
             <ul class="pagination bili-search-page">
                 <li>
