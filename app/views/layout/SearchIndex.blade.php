@@ -44,7 +44,8 @@
             <div class="input-group input-group-lg">
                 <input id="bili-search-input" type="text" class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
-          <button id="bili-search-submit" class="btn btn-info" type="button"><span class="glyphicon glyphicon-search"></span>&nbsp;Search
+          <button id="bili-search-submit" class="btn btn-info" type="button">
+              <span class="glyphicon glyphicon-search"></span>&nbsp;Search
           </button>
       </span>
             </div>
@@ -69,8 +70,7 @@
                         <ul class="nav nav-pills bili-search-filter-order">
                             <li role="presentation"><a data-filter="fuck" href="javascript:;">
                                     <small>综合排序</small>
-                                </a>
-                            </li>
+                                </a></li>
                             <li role="presentation"><a data-filter="click_count" href="javascript:;">
                                     <small>最多点击</small>
                                 </a></li>
@@ -120,7 +120,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -130,8 +129,6 @@
         ?>
     </div>
     <hr>
-
-
     <div class="col-md-12 text-center">
         <nav aria-label="Page navigation">
             <ul class="pagination bili-search-page">
@@ -151,7 +148,6 @@
         </nav>
     </div>
 </div>
-
 <div class="bili-footer" style="background-color: #CCCCFF;">
     <div class="container">
         <hr>
@@ -215,20 +211,16 @@
         </div>
     </div>
 </div>
-
-
 <script src="assets/jquery.min.js"></script>
 <script src="assets/bootstrap.min.js"></script>
 
 <script>
-
 
     $("#bili-search-submit").click(function () {
         var keyword = $("#bili-search-input").val();
         var url = "/search?keyword=" + keyword;
         window.location.href = url;
     });
-
 
     function GetRequest() {
         var url = location.search;
@@ -243,7 +235,6 @@
         return theRequest;
     }
 
-
     $(".bili-search-filter-order > li > a").click(function () {
         event.preventDefault();
         var param = GetRequest();
@@ -252,7 +243,6 @@
         var str = jQuery.param(param);
         window.location.href = location.pathname + '?' + str;
     });
-
 
     $(".bili-search-page > li > a").click(function () {
         event.preventDefault();

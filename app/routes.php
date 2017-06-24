@@ -12,6 +12,20 @@
  */
 Route::controller('search', 'SearchController');
 Route::get('search?order=', 'SearchController@Bili_Search');
+Route::controller('video', 'VideoController');
+
+
+
+
+
+
+
+
+
+
+
+
 Route::controller('/', 'IndexController');
+
 
 
