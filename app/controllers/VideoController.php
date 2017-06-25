@@ -1,15 +1,19 @@
 <?php
 
-class VideoController extends IndexController
+class VideoController extends BaseController
 {
+
 
     protected $layout = 'layout.index';
 
     public function getIndex()
     {
+
         $categories_html = $this->Bili_Categories();
         return View::make('layout.Video')
             ->with('categories_html', $categories_html);
+
+
     }
 
     public function Bili_Categories()

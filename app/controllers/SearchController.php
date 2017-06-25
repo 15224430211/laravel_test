@@ -17,6 +17,8 @@ class SearchController extends BaseController
 
     public function Bili_Search()
     {
+
+
         if (!isset($_GET['keyword'])) {
             $_GET['keyword'] = "";
         }

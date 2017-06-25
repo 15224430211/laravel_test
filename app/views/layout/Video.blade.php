@@ -1,218 +1,235 @@
-@extends('layout.index')
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My bilibili</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico">
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/style.css"/>
-    <style></style>
+@extends('layout.root.root_with_navs')
 
-</head>
-<body>
-<nav class="navbar navbar-default" style="margin-bottom:0px;">
-    <div class="container">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#"><span class="glyphicon glyphicon-star"></span>&nbsp;主站</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;画友</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-equalizer"></span>&nbsp;游戏中心</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-expand"></span>&nbsp;直播</a></li>
-                <li><a href="#">周边</a></li>
-                <li><a href="#">移动端</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">登录</a></li>
-                <li><a href="#">注册</a></li>
-                <li><a href="#">投稿</a></li>
-            </ul>
-        </div>
-    </div>
-    <div>
+@section('detail')
 
-    </div>
-</nav>
-
-<div class="container bili-ranking-panel">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="alert alert-warning" role="alert">
-                <div class="row">
-                    <div class="col-md-12 bili-ranking-panel-name"><b></b></div>
-                </div>
-                <hr style="margin-top: 10px;">
-                <div class="row">
-                    <div class="col-md-5">
-                        <img class="bili-ranking-panel-img" src="" alt="fuck">
-                    </div>
-                    <div class="col-md-7">
-                        <p class="bili-ranking-panel-detail"></p>
-                    </div>
-                </div>
-                <hr style="margin-bottom: 10px;">
-                <div class="row">
-                    <div class="col-md-3">
-                        <span class="glyphicon glyphicon-expand"></span>&nbsp;<b class="bili-ranking-panel-click-count"></b>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="glyphicon glyphicon-comment"></span>&nbsp;<b class="bili-ranking-panel-comment-count"></b>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="glyphicon glyphicon-heart-empty"></span>&nbsp;<b class="bili-ranking-panel-fav-count"></b>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="glyphicon glyphicon-usd"></span>&nbsp;<b class="bili-ranking-panel-coin-count"></b>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="top-background">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-8">
-                <div class="row">
-                    <div class="col-md-4">
-                        <a class="btn btn-default btn-block" href="#" role="button">
-                            <span class="glyphicon glyphicon glyphicon-stats"></span>&nbsp;排行榜
-                        </a>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
-<span class="input-group-btn"><button class="btn btn-default" type="button">Go!
-    </button></span>
-                        </div><!-- /input-group -->
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.col-lg-6 -->
-    </div>
-</div>
-
-<div class="container">
     <div class="row">
         <div class="col-md-8">
-            <ul class="nav nav-pills">
-                <li role="presentation">
-                    <a href="#" style="text-align: center;"> <span class="glyphicon glyphicon-home"></span>
+            <h4>【合集】【720P】神的笔记本 全12集【字幕】</h4>
 
-                        <div>首页</div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-1">
-            <a href="#">
-                <h4><span class="glyphicon glyphicon-road"></span>&nbsp;广场
-                </h4>
+            <p style="color: #99a2aa;">主页 > 番剧 > 完结动画 &nbsp;&nbsp;&nbsp; 2017-06-24 13:25 &nbsp;&nbsp;&nbsp; 稿件投诉</p>
 
-            </a>
+            <div class="row">
+                <div class="col-md-2"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>&nbsp;111
+                </div>
+                <div class="col-md-2"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;222
+                </div>
+                <div class="col-md-2"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;排名&nbsp;111
+                </div>
+                <div class="col-md-3"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;硬币&nbsp;111
+                </div>
+                <div class="col-md-3"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;收藏&nbsp;111
+                </div>
+            </div>
         </div>
         <div class="col-md-1">
-            <a href="#">
-                <h4><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;直播
-                </h4>
+            <img src='assets/images/profile/1.png' style="height: 68px; width: 64px; border-radius: 64px;">
+        </div>
+        <div class="col-md-3">
 
-            </a>
-        </div>
-        <div class="col-md-1">
-            <a href="#">
-                <h4><span class="glyphicon glyphicon-minus-sign"></span>黑屋</h4>
-            </a>
-        </div>
-        <div class="col-md-1">
-            <img src="//i2.hdslb.com/bfs/active/74952c377ad1a128b8f1c6da171366e826207848.gif" alt="催泪向">
+            <p>高桥凌月</p>
+
+            <p>第一次发视频，敬请原谅(展开)</p>
+
+            <p style="color: #99a2aa;">投稿：1 &nbsp;&nbsp;粉丝：3</p>
+
+            <button type="button" class="btn btn-primary  btn-default btn-xs">&nbsp;+关注&nbsp;</button>
+
+            <button type="button" class="btn btn-primary btn-default btn-xs">&nbsp;+1&nbsp;</button>
+
+
         </div>
     </div>
-    <div class="info">
-        @parent
-        @yield("1")
-        {{--@stop--}}
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <video controls="autoplay" width="680px" height="440px">
+                <source src="assets/video/assian.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-7">观看人数+弹幕数
+                </div>
+                <div class="col-md-5">
+                    <span class="glyphicon glyphicon-cog btn-lg" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-option-vertical btn-lg" aria-hidden="true"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <p>推荐视频</p>
+                </div>
+                <div class="col-md-4">
+                    <p>弹幕列表</p>
+                </div>
+                <div class="col-md-4">
+                    <p>屏蔽设定</p>
+                </div>
+            </div>
+            <img src="assets/images/cover/1.png" style="width: 100px;height: 62px;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <button class="btn btn-default" style="float: left; margin: 5px;">分享</button>
+            <div
+                    style=" display:inline-block;height:40px; width: 40px; background:  url('assets/images/profile/icons.png') no-repeat;
+                        background-position-x:-1357px;background-position-y: -586px;">
+
+            </div>
+            <div
+                    style="display:inline-block;height:40px; width: 40px; background:  url('assets/images/profile/icons.png') no-repeat;
+                        background-position-x:-1427px;background-position-y: -726px;">
+
+            </div>
+            <div
+                    style="display:inline-block;height:40px; width: 40px; background:  url('assets/images/profile/icons.png') no-repeat;
+                        background-position-x:-1427px;background-position-y: -796px;">
+
+            </div>
+            <div
+                    style="display:inline-block;height:40px; width: 40px; background:  url('assets/images/profile/icons.png') no-repeat;
+                        background-position-x:-1357px;background-position-y: -656px;">
+
+            </div>
+            {{--下拉菜单--}}
+            {{--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">--}}
+            {{--<li><a href="#">Action</a></li>--}}
+            {{--<li><a href="#">Another action</a></li>--}}
+            {{--<li role="separator" class="divider"></li>--}}
+            {{--<li role="separator" class="divider"></li>--}}
+            {{--<li><a href="#">Separated link</a></li>--}}
+            {{--</ul>--}}
+
+        </div>
     </div>
     <div>
-        <video controls="autoplay" width="500px" height="500px">
-            <source src="video/gintama.mkv" type="video/mkv">
-        </video>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
+        <span class="label label-default">Default</span>
     </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <p>《蕉忍♂疾风传》改编自日暮里漫画家岸本♂齐湿的同名漫画，于2069年6月9日在东茎电视台放送首勃♂。故事以蕉之国金刚村为起点，讲述主人翁那撸♂多（中译：旋涡蕉人）一步一步困难重重成为最强摔跤忍者“蕉影”的故事。该动画播出之际，世界掀起了一股摔跤浪潮，无数无数的青少年，甚至足不出户的阿宅们，都勇敢地迈向健身房提高自身身体素质并交流哲学思想，甚至有部分政府把“忍♂术”设为青少年必修课程。该动画被联合国誉为“动画界的圣经”，某动画公司深受救赎，借鉴了此作品。
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="raw">
+                <div class="col-md-3">
+                    <img class='bili-video-img' src='assets/images/cover/1.png'>
 
-    <div class="bili-footer" style="background-color: #CCCCFF;">
-        <div class="container">
-            <hr>
-            <div class="row">
-                <div class="col-md-4">
-                    <div style="margin-bottom: 20px;">bili</div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div><a href="#"><p>关于我们</p></a></div>
-                            <div><a href="#"><p>友情链接</p></a></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div><a href="#"><p>哔哩周边</p></a></div>
-                            <div><a href="#"><p>联系我们</p></a></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div><a href="#"><p>加入我们</p></a></div>
-                            <div><a href="#"><p>官方认证</p></a></div>
-                        </div>
+                    <div class='bili-video-title'><a href='#'>
+                            <div>定春</div>
+                            <div class='row'>
+                                <div class='col-md-6'>
+                                    <div style='color: #aaa;'>
+                                        <span class='glyphicon glyphicon-expand'></span>&nbsp;111
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div style='color: #aaa;'>
+                                        <span class='glyphicon glyphicon-comment'></span>&nbsp;222
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-4" style="border-left: solid 1px #e5e9ef;border-right:solid 1px #e5e9ef;">
-                    <div style="margin-bottom: 20px;">传送门</div>
+                <div class="col-md-3">
+                    <img class='bili-video-img' src='assets/images/cover/1.png'>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div><a href="#"><p>帮助中心</p></a></div>
-                            <div><a href="#"><p>侵权申诉</p></a></div>
-                            <div><a href="#"><p>用户反馈</p></a></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div><a href="#"><p>高级弹幕</p></a></div>
-                            <div><a href="#"><p>分院帽</p></a></div>
-                            <div><a href="#"><p>壁纸站</p></a></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div><a href="#"><p>活动专题</p></a></div>
-                            <div><a href="#"><p>活动中心</p></a></div>
-                            <div><a href="#"><p>名人堂</p></a></div>
-                        </div>
+                    <div class='bili-video-title'><a href='#'>
+                            <div>定春</div>
+                            <div class='row'>
+                                <div class='col-md-6'>
+                                    <div style='color: #aaa;'>
+                                        <span class='glyphicon glyphicon-expand'></span>&nbsp;111
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div style='color: #aaa;'>
+                                        <span class='glyphicon glyphicon-comment'></span>&nbsp;222
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="col-md-4">
-                        <img src="assets/images/icons/download.png">
-                        <a href="#"><p>手机端下载</p></a>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="assets/images/icons/weibo.png">
-                        <a href="#"><p>新浪微博</p></a>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="assets/images/icons/wechat.png">
-                        <a href="#"><p>官方微信</p></a>
+                <div class="col-md-3">
+                    <img class='bili-video-img' src='assets/images/cover/1.png'>
+
+                    <div class='bili-video-title'><a href='#'>
+                            <div>定春</div>
+                            <div class='row'>
+                                <div class='col-md-6'>
+                                    <div style='color: #aaa;'>
+                                        <span class='glyphicon glyphicon-expand'></span>&nbsp;111
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div style='color: #aaa;'>
+                                        <span class='glyphicon glyphicon-comment'></span>&nbsp;222
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Copyright © 2017 By Lemon</p>
+                <div class="col-md-3">
+                    <img class='bili-video-img' src='assets/images/cover/1.png'>
+
+                    <div class='bili-video-title'><a href='#'>
+                            <div>定春</div>
+                            <div class='row'>
+                                <div class='col-md-6'>
+                                    <div style='color: #aaa;'>
+                                        <span class='glyphicon glyphicon-expand'></span>&nbsp;111
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div style='color: #aaa;'>
+                                        <span class='glyphicon glyphicon-comment'></span>&nbsp;222
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <textarea class="form-control" rows="3"></textarea>
+        </div>
+        <div class="col-md-4"></div>
 
     </div>
-@yield('footer')
 
-    <script src="assets/jquery.min.js"></script>
-    <script src="assets/bootstrap.min.js"></script>
-</body>
-</html>
+
+@stop
+
+
+@section('foot-assets')
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+@stop
+
