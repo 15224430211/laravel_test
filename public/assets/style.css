@@ -233,11 +233,16 @@ h4 {
 }
 
 .bili-search-detail-name > h4 {
-    display:flex;
+    display: flex;
     margin-top: 0;
 }
 
 .bili-search-detail-name a {
     overflow: hidden;
     white-space: nowrap;
+}
+
+.bili-video-detail-tag span {
+    float: left;
+    margin: 0 10px 8px 0;
 }
