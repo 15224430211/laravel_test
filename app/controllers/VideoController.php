@@ -10,6 +10,7 @@ class VideoController extends BaseController
     {
         $video_recommend_html = $this->Video_Recommend();
         $video_author_html = $this->Video_Author();
+        $video_id_html = $this->Video_id();
         $video_fav_html = $this->Video_Fav();
         $video_update_time_html = $this->Video_Update_time();
         $categories_html = $this->Bili_Categories();
@@ -19,6 +20,7 @@ class VideoController extends BaseController
             ->with('video_title_html', $video_title_html)
             ->with('video_fav_html', $video_fav_html)
             ->with('video_author_html', $video_author_html)
+            ->with('video_id_html', $video_id_html)
             ->with('video_recommend_html', $video_recommend_html)
             ->with('video_update_time_html', $video_update_time_html);
 
@@ -57,7 +59,7 @@ class VideoController extends BaseController
         $video_update_time_html = "";
         $result_update_time = DB::table('animation_detail')->take(1)->get();
         foreach ($result_update_time as $key => $value) {
-            $video_update_time_html .= ' <P>' . $value->update_time . ' </p>';
+            $video_update_time_html .= ' <P style="color: #6d757a;">' . $value->update_time . ' </p>';
         }
         return $video_update_time_html;
     }
@@ -68,15 +70,15 @@ class VideoController extends BaseController
         $result_fav = DB::table('animation_detail')->take(1)->get();
         foreach ($result_fav as $key => $value) {
             $video_fav_html .= ' <div class="row">
-                <div class="col-md-2"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>&nbsp;' . $value->click_count . '
+                <div class="col-md-2" style="color: #6d757a;"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>&nbsp;' . $value->click_count . '
                 </div>
-                <div class="col-md-2"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;' . $value->comment_count . '
+                <div class="col-md-2" style="color: #6d757a;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;' . $value->comment_count . '
                 </div>
-                <div class="col-md-2"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;排名&nbsp;???
+                <div class="col-md-2" style="color: #6d757a;"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;排名&nbsp;???
                 </div>
-                <div class="col-md-3"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;硬币&nbsp;' . $value->coin_count . '
+                <div class="col-md-3" style="color: #6d757a;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;硬币&nbsp;' . $value->coin_count . '
                 </div>
-                <div class="col-md-3"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;收藏&nbsp;' . $value->fav_count . '
+                <div class="col-md-3" style="color: #6d757a;"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;收藏&nbsp;' . $value->fav_count . '
                 </div>
             </div>';
         }
@@ -119,5 +121,18 @@ class VideoController extends BaseController
                 </div>';
         }
         return $video_recommend_html;
+    }
+
+
+    public function Video_id()
+    {
+        $video_id_html = "";
+        $result_id = DB::table('animation_detail')->take(1)->get();
+        foreach ($result_id as $key => $value) {
+            $video_id_html .= '<video controls="autoplay" width="680px" height="440px">
+                <source src="assets/video/' . $value->id . '.mp4">
+            </video>';
+        }
+        return $video_id_html;
     }
 }
