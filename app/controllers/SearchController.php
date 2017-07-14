@@ -66,7 +66,7 @@ class SearchController extends BaseController
 
         $search_html = "";
         $result = DB::table('animation_detail')
-            ->select(DB::raw('animation_detail.*,categories.id,categories.`name` AS fuck'))
+            ->select(DB::raw('animation_detail.*,categories.`name` AS fuck'))
             ->leftJoin('categories', 'categories.id', '=', 'animation_detail.categories_id')
             ->where('animation_detail.name', 'LIKE', "%" . $_GET['keyword'] . "%")
             ->whereRaw($duration)
@@ -80,14 +80,16 @@ class SearchController extends BaseController
 <hr>
             <div class="row">
                 <div class="col-md-3 bili-search-detail-img">
-                    <img src="assets/images/cover/' . $value->image_name . '.png" >
+                    <a href="/video/' . $value->id . '">
+                    <img src="assets/images/cover/' . $value->image_name . '.png" ></a>
                     <div>' . $value->length . '</div>
+
                 </div>
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-12 bili-search-detail-name">
                             <h4 style="">
-                                <span class="label label-primary">' . ($key + 1) . '</span>&nbsp;<a href="#">' . $value->name . '</a>
+                                <span class="label label-primary">' . ($key + 1) . '</span>&nbsp;<a href="/video/' . $value->id . '">' . $value->name . '</a>
                             </h4>
                         </div>
                     </div>
@@ -120,7 +122,7 @@ class SearchController extends BaseController
             ->whereRaw($categories)
             ->count();
 //        页数获取
-         $this->page_num = ceil($count / 10);
+        $this->page_num = ceil($count / 10);
 
         return $search_html;
     }
@@ -149,7 +151,7 @@ class SearchController extends BaseController
     {
         $page_html = "";
         for ($i = 0; $i < $page_num; $i++) {
-            $page_html .= '<li><a data-filter="' . ($i+1) . '" href="javascript:;">' . ($i + 1) . '</a></li>';
+            $page_html .= '<li><a data-filter="' . ($i + 1) . '" href="javascript:;">' . ($i + 1) . '</a></li>';
         }
 
         return $page_html;

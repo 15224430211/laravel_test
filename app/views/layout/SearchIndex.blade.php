@@ -7,10 +7,10 @@
     <title>My bilibili</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico">
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/style.css"/>
-    <style></style>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+
 </head>
 <body>
 <nav class="navbar navbar-default" style="margin-bottom:0px;">
@@ -42,7 +42,7 @@
         </div>
         <div class="col-lg-5">
             <div class="input-group input-group-lg">
-                <input id="bili-search-input" type="text" class="form-control" placeholder="Search for...">
+                <input id="bili-search-input" type="text" class="form-control" placeholder="Search for..." value="{{$_GET['keyword'] or ''}}">
       <span class="input-group-btn">
           <button id="bili-search-submit" class="btn btn-info" type="button">
               <span class="glyphicon glyphicon-search"></span>&nbsp;Search
@@ -52,16 +52,7 @@
         </div>
     </div>
     <hr>
-    {{--<div class="row">--}}
-    {{--<div class="col-md-12">--}}
-    {{--<ul class="nav nav-tabs nav-justified bili-search-search-bar">--}}
-    {{--<li role="presentation"><a href="#">游戏</a></li>--}}
-    {{--<li role="presentation"><a href="#">音乐</a></li>--}}
-    {{--<li role="presentation"><a href="#">影视</a></li>--}}
-    {{--<li role="presentation"><a href="#">动画</a></li>--}}
-    {{--</ul>--}}
-    {{--</div>--}}
-    {{--</div>--}}
+
     <div class="row">
         <div class="col-md-12">
             <div class="bili-search-filter">
@@ -211,8 +202,8 @@
         </div>
     </div>
 </div>
-<script src="assets/jquery.min.js"></script>
-<script src="assets/bootstrap.min.js"></script>
+<script src="/assets/jquery.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
 
 <script>
 

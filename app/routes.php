@@ -11,7 +11,7 @@
 |
  */
 Route::controller('search', 'SearchController');
-Route::controller('video', 'VideoController');
+Route::controller('video/{id}', 'VideoController');
 Route::controller('test', 'TestController');
 
 

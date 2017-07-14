@@ -36,7 +36,7 @@
             </a>
         </div>
         <div class="col-md-1">
-            <img src="//i2.hdslb.com/bfs/active/74952c377ad1a128b8f1c6da171366e826207848.gif" alt="催泪向">
+            <img src="/assets/images/icons/dog.gif" alt="催泪向">
         </div>
     </div>
     @yield('detail')
@@ -56,9 +56,10 @@
                         </div>
                         <div class="col-md-8">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
-<span class="input-group-btn"><button class="btn btn-default" type="button">Go!
-    </button></span>
+                                <input type="text" class="form-control bili-search-input" placeholder="Search for...">
+<span class="input-group-btn">
+    <button class="btn btn-default  bili-search-submit" role="button">Go!</button>
+</span>
                             </div><!-- /input-group -->
                         </div>
                     </div>
@@ -66,4 +67,18 @@
             </div><!-- /.col-lg-6 -->
         </div>
     </div>
+
+@stop
+
+
+@section('foot-assets')
+    <script>
+
+        $(".top-background .bili-search-submit").click(function () {
+            var keyword = $(".top-background .bili-search-input").val();
+            var url = "/search?keyword=" + keyword;
+            window.location.href = url;
+        });
+    </script>
+
 @stop

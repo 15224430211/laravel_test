@@ -20,7 +20,7 @@ class IndexController extends BaseController
         $result_categories = DB::table('categories')->get();
         foreach ($result_categories as $key => $value) {
             $categories_html .= '<li>
-            <a href="#" style="text-align: center;"><span class="label label-info">' . $value->daily_count . '</span>
+            <a href="search?categories=' . $value->id . '" style="text-align: center;"><span class="label label-info">' . $value->daily_count . '</span>
                 <div>' . $value->name . '</div>
             </a>
         </li>';
@@ -36,7 +36,7 @@ class IndexController extends BaseController
         foreach ($result as $value) {
             $title_html .= '<div class="col-md-4">
                       <div class="bili-item">
-                        <a href="#">
+                        <a href="/video/' . $value->id . '">
                             <img class="bili-item-img img-responsive img-rounded" src="assets/images/cover/' . $value->image_name . '.png">
                             <div class="bili-item-mask">
                                 <p>' . $value->name . '</p>
@@ -54,15 +54,19 @@ class IndexController extends BaseController
     public function Bili_Video_Ranking()
     {
 
-        $result_categories = DB::table('categories')->get();
+        $result_categories = DB::table('categories')
+            ->get();
         $bili_video_ranking_html = "";
         foreach ($result_categories as $categories_key => $categories_value) {
             $bili_video_html = "";
-            $result = DB::table('animation_detail')->where('categories_id', $categories_value->id)->take(8)->get();
+            $result = DB::table('animation_detail')
+                ->where('categories_id', $categories_value->id)
+                ->take(8)
+                ->get();
             foreach ($result as $value) {
                 $bili_video_html .=
-                    "<div class='col-md-3' data-video-id='{$value->id}'>
-                    <img class='bili-video-img' src='assets/images/cover/" . $value->image_name . ".png'>
+                    "<div class='col-md-3'>
+                    <a href='/video/" . $value->id . "' data-video-id='{$value->id}'><img class='bili-video-img' src='assets/images/cover/" . $value->image_name . ".png'>
                     <div class='bili-video-background'>
                         <img src='#'>
                     </div>
@@ -76,7 +80,8 @@ class IndexController extends BaseController
                      </div>
                      <div class='text-right'>" . $value->length . "</div>
                     </div>
-                    <div class='bili-video-title'><a href='#'>
+                    </a>
+                    <div class='bili-video-title'><a href='/video/" . $value->id . "'>
                     <div>" . $value->name . "</div>
                             <div class='row'>
                                 <div class='col-md-6'>
@@ -129,12 +134,12 @@ class IndexController extends BaseController
                         <div class='media-left'><span class='label label-primary'>" . ($key + 1) . "</span>
                         </div>
                         <div class='media-left'>
-                            <a href='#'>
+                            <a href='/video/" . $value->id . "'>
                                 <img class='media-object' src='assets/images/cover/" . $value->image_name . ".png'>
                             </a>
                         </div>
                         <div class='media-body media-heading'>
-                            <a href='#'>" . $value->name . "</a>
+                            <a href='/video/" . $value->id . "'>" . $value->name . "</a>
                         </div>
                     </div>
                     </div>";
@@ -146,7 +151,7 @@ class IndexController extends BaseController
                             <span class='label label-primary'>" . ($key + 1) . "</span>
                         </div>
                         <div class='media-body'>
-                            <a href='#'>
+                            <a href='/video/" . $value->id . "'>
                                 <div>
                                 " . $value->name . "</div>
                             </a>

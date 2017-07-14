@@ -8,7 +8,7 @@
             <div class="col-md-4">
                 <div class="alert alert-warning" role="alert">
                     <div class="row">
-                        <div class="col-md-12 bili-ranking-panel-name"><b></b></div>
+                        <div class="col-md-12 bili-ranking-panel-name"></div>
                     </div>
                     <hr style="margin-top: 10px;">
                     <div class="row">
@@ -48,7 +48,6 @@
     <div class="row">
         <div class="col-md-5">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -175,4 +174,5 @@
             $(".bili-ranking-panel-coin-count").text(video_list[video_id]['coin_count']);
         }
     </script>
+    @parent
 @stop

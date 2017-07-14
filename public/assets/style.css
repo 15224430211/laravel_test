@@ -48,7 +48,7 @@ h4 {
 .top-background {
     height: 170px;
     background: transparent no-repeat center -10px;
-    background-image: url(http://i0.hdslb.com/bfs/archive/4f59bf959d51592016e07efe62969c411288826a.png);
+    background-image: url(images/background/1.webp);
 }
 
 .top-background > .container {
@@ -207,16 +207,6 @@ h4 {
     border-right: solid 1px #e5e9ef;
 }
 
-.bili-search-search-bar {
-    margin-bottom: 20px;
-}
-
-.bili-search-search-bar > li a:hover {
-    border: none;
-    border-bottom: 1px solid #66CCCC;
-    background-color: #ffffff;
-}
-
 .bili-search-filter div > div > ul > li a {
     color: #000;
 }
@@ -230,6 +220,9 @@ h4 {
     right: 15px;
     bottom: 0;
     line-height: 25px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    padding: 0 5px;
 }
 
 .bili-search-detail-name > h4 {

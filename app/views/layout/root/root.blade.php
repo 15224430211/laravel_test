@@ -7,9 +7,9 @@
     <title>My bilibili</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico">
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/style.css"/>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
     <style></style>
 </head>
 <body>
@@ -33,7 +33,6 @@
         </div>
     </div>
 </nav>
-
 
 
 @yield('bili-ranking-panel')
@@ -90,15 +89,15 @@
             </div>
             <div class="col-md-4">
                 <div class="col-md-4">
-                    <img src="assets/images/icons/download.png">
+                    <img src="/assets/images/icons/download.png">
                     <a href="#"><p>手机端下载</p></a>
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/icons/weibo.png">
+                    <img src="/assets/images/icons/weibo.png">
                     <a href="#"><p>新浪微博</p></a>
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/icons/wechat.png">
+                    <img src="/assets/images/icons/wechat.png">
                     <a href="#"><p>官方微信</p></a>
                 </div>
             </div>
@@ -113,8 +112,9 @@
 </div>
 
 
-<script src="assets/jquery.min.js"></script>
-<script src="assets/bootstrap.min.js"></script>
+<script src="/assets/jquery.min.js"></script>
+<script src="/assets/bootstrap.min.js"></script>
+
 
 @yield('foot-assets')
 </body>
