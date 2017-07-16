@@ -12,6 +12,7 @@ class IndexController extends BaseController
             ->with('title_html', $title_html)
             ->with('bili_video_ranking_html', $bili_video_ranking_html);
 
+
     }
 
     public function Bili_Categories()
@@ -196,13 +197,42 @@ class IndexController extends BaseController
 
     }
 
-    function myfunction($result)
+    public function getRegister()
     {
-        $fuck = array();
-        foreach ($result as $key => $value) {
-            $fuck[$value->id] = $value;
-        }
-        return $fuck;
+        return View::make('layout.register');
+
     }
+
+    public function postRegister()
+    {
+
+        $rules = array(
+            'username_register' => 'required|digitsbetween:6,10',
+            'password_register' => 'required|digitsbetween:6,10',
+        );
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails()) {
+            echo "666";
+            die;
+        }
+
+
+
+        $result = DB::table('user')
+            ->insert(
+                array('username' => $_POST['username_register'], 'password' => $_POST['password_register'])
+            );
+        if ($result == 1) {
+            echo "200";
+        } else {
+ echo "999";
+        }
+    }
+
+    public function getLogin()
+    {
+        echo "shit";
+    }
+
 
 }
