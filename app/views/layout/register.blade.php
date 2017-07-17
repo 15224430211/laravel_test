@@ -17,7 +17,7 @@
             <form class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="email" class="form-control" id="bili-username" placeholder="昵称">
+                        <input type="text" class="form-control" id="bili-username" placeholder="昵称">
                     </div>
                 </div>
                 <div class="form-group">

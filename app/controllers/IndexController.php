@@ -4,6 +4,7 @@ class IndexController extends BaseController
 {
     public function getIndex()
     {
+
         $categories_html = $this->Bili_Categories();
         $title_html = $this->Bili_Title();
         $bili_video_ranking_html = $this->Bili_Video_Ranking();
@@ -11,8 +12,6 @@ class IndexController extends BaseController
             ->with('categories_html', $categories_html)
             ->with('title_html', $title_html)
             ->with('bili_video_ranking_html', $bili_video_ranking_html);
-
-
     }
 
     public function Bili_Categories()
@@ -212,26 +211,73 @@ class IndexController extends BaseController
         );
         $validator = Validator::make(Input::all(), $rules);
         if ($validator->fails()) {
-            echo "666";
+            echo "666-1";
+            die;
+        }
+        $input = Input::all();
+        if (
+            DB::table('user')
+                ->where('username', $input['username_register'])
+                ->count() == 0
+        ) {
+        } else {
+            echo "666-2";
             die;
         }
 
-
-
         $result = DB::table('user')
             ->insert(
-                array('username' => $_POST['username_register'], 'password' => $_POST['password_register'])
+                array('username' => $input['username_register'], 'password' => $input['password_register'])
             );
         if ($result == 1) {
             echo "200";
         } else {
- echo "999";
+            echo "999";
         }
     }
 
     public function getLogin()
     {
-        echo "shit";
+        return View::make('layout.login');
+    }
+
+    public function postLogin()
+    {
+
+        $input = Input::all();
+        $rules = array(
+            'username_login' => 'required|digitsbetween:6,10',
+            'password_login' => 'required|digitsbetween:6,10',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            echo "666-1";
+            die;
+        }
+
+
+        $login = DB::table('user')
+            ->where('username', $input['username_login'])
+            ->where('password', $input['password_login'])
+            ->get();
+        if ($login) {
+
+            Session::put('user', $login);
+
+            echo "200";
+
+        } else {
+            echo "666-2";
+            die;
+        }
+    }
+
+    public function getLogout()
+    {
+        Session::flush();
+        return Redirect::to('/');
     }
 
 

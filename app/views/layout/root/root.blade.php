@@ -26,8 +26,13 @@
                 <li><a href="#">移动端</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">登录</a></li>
-                <li><a href="/register">注册</a></li>
+                @if(Session::has('user'))
+                    <li><a href="#">{{Session::get('user.0')->username}}</a></li>
+                    <li><a href="/logout">退出</a></li>
+                @else
+                    <li><a href="/login">登录</a></li>
+                    <li><a href="/register">注册</a></li>
+                @endif
                 <li><a href="#">投稿</a></li>
             </ul>
         </div>
