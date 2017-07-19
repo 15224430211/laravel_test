@@ -6,8 +6,7 @@
         <div class="col-md-8">
             <ul class="nav nav-pills">
                 <li role="presentation">
-                    <a href="#" style="text-align: center;"> <span class="glyphicon glyphicon-home"></span>
-
+                    <a href="#" style=""><span class="glyphicon glyphicon-home"></span>
                         <div>首页</div>
                     </a>
                 </li>
@@ -18,16 +17,12 @@
         </div>
         <div class="col-md-1">
             <a href="#">
-                <h4><span class="glyphicon glyphicon-road"></span>&nbsp;广场
-                </h4>
-
+                <h4><span class="glyphicon glyphicon-road"></span>&nbsp;广场</h4>
             </a>
         </div>
         <div class="col-md-1">
             <a href="#">
-                <h4><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;直播
-                </h4>
-
+                <h4><span class="glyphicon glyphicon-facetime-video"></span>&nbsp;直播</h4>
             </a>
         </div>
         <div class="col-md-1">

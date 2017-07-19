@@ -1,8 +1,7 @@
 @extends('layout.root.root')
 
 @section('top-background')
-    <div class="top-background">
-    </div>
+    <div class="top-background"></div>
 @stop
 @section('content')
     <div class="row">
@@ -10,6 +9,7 @@
             <h2 class="text-center">注册</h2>
         </div>
     </div>
+
     <hr>
 
     <div class="row">

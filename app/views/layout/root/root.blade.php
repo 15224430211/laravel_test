@@ -50,12 +50,12 @@
     @yield('content')
 </div>
 
-<div class="bili-footer" style="background-color: #CCCCFF;">
+<div class="bili-footer">
     <div class="container">
         <hr>
         <div class="row">
             <div class="col-md-4">
-                <div style="margin-bottom: 20px;">bili</div>
+                <div>bili</div>
                 <div class="row">
                     <div class="col-md-4">
                         <div><a href="#"><p>关于我们</p></a></div>
@@ -71,9 +71,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4" style="border-left: solid 1px #e5e9ef;border-right:solid 1px #e5e9ef;">
-                <div style="margin-bottom: 20px;">传送门</div>
-
+            <div class="col-md-4">
+                <div>传送门</div>
                 <div class="row">
                     <div class="col-md-4">
                         <div><a href="#"><p>帮助中心</p></a></div>

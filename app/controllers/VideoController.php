@@ -58,9 +58,12 @@ class VideoController extends BaseController
         $video_recommend_html = "";
         $result_recommend = DB::table('animation_detail')->take(4)->get();
         foreach ($result_recommend as $key => $value) {
-            $video_recommend_html .= ' <div class="col-md-3">
+            $video_recommend_html .= '<div class="col-md-3">
+                   <a href="/video/' . $value->id . '">
                     <img class="bili-video-img" src="/assets/images/cover/' . $value->id . '.png">
-                    <div class="bili-video-title"><a href="#">
+                    </a>
+                    <div class="bili-video-title">
+                    <a href="/video/' . $value->id . '">
                             <div>' . $value->name . '</div>
                             <div class="row">
                                 <div class="col-md-6">

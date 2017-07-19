@@ -5,13 +5,9 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>
-                        {{$video_info->name}}
-                    </h4>
+                    <h4>{{$video_info->name}}</h4>
                 </div>
             </div>
-
-
             <div class="row">
                 <div class="col-md-4">
                     <ol class="breadcrumb" style="padding:0;">
@@ -85,26 +81,19 @@
         </div>
         <div class="col-md-4">
             <div class="row">
-                <div class="col-md-3" style="float:left;color: #6d757a;font-size: 12px;    white-space: nowrap;
-    overflow: hidden;">
-                    <p>???人正在观看</p>
-                </div>
-                <div class="col-md-4" style="float: left;color: #6d757a;    white-space: nowrap;
-    overflow: hidden;">???条弹幕</div>
+                <div class="col-md-7"></div>
                 <div class="col-md-5" style="float: left;">
                     <span class="glyphicon glyphicon-cog btn-lg" aria-hidden="true"></span>
                     <span class="glyphicon glyphicon-option-vertical btn-lg" aria-hidden="true"></span>
                 </div>
             </div>
 
-
             <div class="row">
                 <div class="col-md-12">
                     <table class="table table-condensed bili-detail-comment-table">
                         <tr>
-                            <th class="active">时间
-                            </th>
-                            <th class="success" style="width: 50%;word-break: break-all; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">弹幕内容</th>
+                            <th class="active">时间</th>
+                            <th class="success">弹幕内容</th>
                             <th class="warning">发送时间</th>
                         </tr>
 
@@ -138,10 +127,7 @@
                             <div class="col-md-3">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="anim-fav"
-                                             style="height:60px; width: 80px; background:
-                                         url(/assets/images/profile/anim-fav.png) no-repeat;
-                        background-position-x:0px;background-position-y: 0px;margin-top: 20px;">
+                                        <div class="anim-fav">
                                         </div>
                                     </div>
                                     <div class="col-md-6" style="margin-top: 20px;">
@@ -154,10 +140,7 @@
                             <div class="col-md-3">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="anim-coin"
-                                             style="height:80px; width: 80px; background:  url(/assets/images/profile/anim-coin.png) no-repeat;
-                        background-position-x:0px;background-position-y: 0px;">
-                                        </div>
+                                        <div class="anim-coin"></div>
                                     </div>
                                     <div class="col-md-6" style="margin-top: 20px;">
                                         <span style="line-height: 30px;">硬币</span>
@@ -169,10 +152,7 @@
                             <div class="col-md-3">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="anim-watch-later"
-                                             style="margin-top: 20px;height:60px; width: 80px; background:  url(/assets/images/profile/anim-watch-later.png) no-repeat;
-                        background-position-x:0px;background-position-y: 0px;">
-                                        </div>
+                                        <div class="anim-watch-later"></div>
                                     </div>
                                     <div class="col-md-6" style="margin-top: 20px;">
                                         <span style="line-height: 30px;">稍后看</span>
@@ -185,7 +165,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <hr>
@@ -218,9 +197,7 @@
                 <?php
                 echo $video_recommend_html;
                 ?>
-
             </div>
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
@@ -239,27 +216,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2">
-                    <img src="/assets/images/cover/1.png" style="height: 74px;width: 80px;border-radius: 50%;">
+                <div class="col-md-2 author-img">
+                    <img src="/assets/images/cover/1.png">
                 </div>
                 <div class="col-md-8">
- <textarea name="content" class="form-control" rows="1"
-           maxlength="140" placeholder="请输入要发布的内容" style="margin-top: 30px;"></textarea>
+                    <textarea name="content" class="form-control" rows="1" maxlength="140" placeholder="请输入要发布的内容" style="margin-top: 30px;"></textarea>
                 </div>
                 <div class="col-md-2" style="padding: 0;">
                     <button class="btn btn-default btn-info" type="submit" style="margin-top: 30px;">发表评论</button>
                 </div>
-
             </div>
             <hr>
             {{--@foreach($key as $value)--}}
             {{--@endforeach--}}
             <div class="row">
-                <div class="col-md-2">
-                    <img src="/assets/images/cover/1.png" style="height: 74px;width: 80px;border-radius: 50%;">
+                <div class="col-md-2 user-img">
+                    <img src="/assets/images/cover/1.png">
                 </div>
                 <div class="col-md-10">
-
                     <p>Username</p>
                     {{--用户名--}}
                     <h6>comment</h6>
@@ -275,7 +249,6 @@
                                         <h6>2017-06-24 08:25</h6>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -290,10 +263,8 @@
     </div>
 @stop
 
-
 @section('foot-assets')
     <script>
-
 
         Date.prototype.Format = function () {
             var o = {
@@ -304,15 +275,12 @@
             };
             var fmt = (this.getMonth() + 1) + '-' + this.getDate() + ' ' + this.getHours() + ':' + this.getMinutes();
 
-
             return fmt;
         };
-
 
         $(function () {
             $('[data-toggle="popover"]').popover()
         });
-
 
         var animation_interval;
         function start_animation_interval(fuck) {
@@ -327,7 +295,6 @@
                 var position_x_max = -960
             }
 
-
             animation_interval = setInterval(function () {
                 var position_x = fuck.css("background-position-x").replace("px", "") - 80;
 //        alert(position_x);
@@ -335,10 +302,8 @@
                     position_x = 0;
                 }
                 fuck.css("background-position-x", position_x + "px")
-
             }, 10)
         }
-
 
         $(".anim-fav,.anim-coin,.anim-watch-later").mouseenter(function () {
             start_animation_interval($(this));
@@ -357,23 +322,15 @@
                 $("#results").append(html);
                 console.log(html);
                 var danmu = $(html).find('d');
-
-
                 for (var i = 0; i < 12; i++
                 ) {
-
                     var a = '<tr>' +
                             '<td>' + parseInt($(danmu[i]).attr('p').split(",")[0]) + '</td>' +
                             '<td>' + $(danmu[i]).text() + '</td > ' +
                             '<td>' + (new Date(parseInt($(danmu[i]).attr('p').split(",")[4]) * 1000)).Format('MM-dd hh:mm') + '</td>' +
                             '</tr>';
-
                     $('.bili-detail-comment-table').append(a);
-
-
                 }
-
-
                 var xml = '<rss version="2.0"><channel><title>RSS Title</title></channel></rss>',
                         xmlDoc = $.parseXML(html),
                         $xml = $(xmlDoc),
@@ -383,8 +340,6 @@
                 $title.text('XML Title');    // append "XML Title" to #anotherElement
                 $('#anotherElement').append($title.text());
             }
-
-
         });
 
         $('a.show-comment').click(function () {
@@ -396,11 +351,7 @@
                 var mid = $(this).attr('mid');
                 installComment(mid);
             }
-
-
         });
-
-
     </script>
     @parent
 @stop

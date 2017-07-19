@@ -6,6 +6,38 @@ h4 {
     margin-top: 19px;
 }
 
+/*root */
+.bili-footer {
+    background-color: #CCCCFF;
+}
+
+.bili-footer > div > div > div > div {
+    margin-bottom: 20px;
+}
+
+.bili-footer > div > div > div:nth-child(2) {
+    border-left: solid 1px #e5e9ef;
+    border-right: solid 1px #e5e9ef;
+}
+
+.bili-footer > div > div > div:nth-child(2) > div {
+    margin-bottom: 20px;
+}
+
+/*root_with_navs*/
+.nav-pills > li > a {
+    text-align: center;
+}
+
+/*login*/
+.background-img > img {
+    width: 100%;
+}
+
+.login-form > div > div {
+    margin-top: 90px;
+}
+
 .bili-item {
     margin-bottom: 10px;
 }
@@ -221,7 +253,7 @@ h4 {
     bottom: 0;
     line-height: 25px;
     color: white;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 0 5px;
 }
 
@@ -238,4 +270,50 @@ h4 {
 .bili-video-detail-tag span {
     float: left;
     margin: 0 10px 8px 0;
+}
+
+.bili-detail-comment-table > tr:nth-child(2) {
+    width: 50%;
+    word-break: break-all;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.anim-fav {
+    height: 60px;
+    width: 80px;
+    background: url(/assets/images/profile/anim-fav.png) no-repeat;
+    background-position-x: 0px;
+    background-position-y: 0px;
+    margin-top: 20px;
+}
+
+.anim-coin {
+    height: 80px;
+    width: 80px;
+    background: url(/assets/images/profile/anim-coin.png) no-repeat;
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+
+.anim-watch-later {
+    margin-top: 20px;
+    height: 60px;
+    width: 80px;
+    background: url(/assets/images/profile/anim-watch-later.png) no-repeat;
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+
+.author-img > img {
+    height: 74px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.user-img > img {
+    height: 74px;
+    width: 80px;
+    border-radius: 50%;
 }

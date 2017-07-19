@@ -1,9 +1,9 @@
 @extends('layout.root.root')
 
 @section('top-background')
-    <div class="top-background">
-    </div>
+    <div class="top-background"></div>
 @stop
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -15,15 +15,15 @@
     <div class="row">
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-8 col-md-offset-3">
-                    <img src="assets/images/login-background/1.png" style="width: 100%;">
+                <div class="col-md-8 col-md-offset-3 background-img">
+                    <img src="assets/images/login-background/1.png">
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="row">
+            <div class="row login-form">
                 <div class="col-md-8">
-                    <div style="margin-top: 90px;">
+                    <div>
                         <form class="form-horizontal">
                             <div class="form-group">
                                 <div class="col-sm-12">
@@ -35,7 +35,6 @@
                                     <input type="password" class="form-control" id="bili-password" placeholder="请输入密码">
                                 </div>
                             </div>
-
                             <hr>
                             <div class="form-group">
                                 <div class="col-md-6">
